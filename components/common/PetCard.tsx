@@ -1,6 +1,7 @@
 import { useCartStore } from "@/store/cartStore";
 import { Pet } from "@/types/pet";
-import { Text, View, StyleSheet, Image, Button } from "react-native";
+import { useRouter } from "expo-router";
+import { Text, View, StyleSheet, Image, Button, Alert, TouchableOpacity } from "react-native";
 
  
 
@@ -27,12 +28,42 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
     },
+    button: {
+    backgroundColor: "#2563eb",
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginTop: 12,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
 });
 
 
 export default function PetCard({pet}: Props) {
 
     const addToCart = useCartStore((state) => state.addToCart);
+
+    const router = useRouter();
+
+    const handleAdd = () => {
+        addToCart(pet);
+
+        Alert.alert (
+            "Added to Cart 🛒",
+            `${pet.name} added successfully`,
+            [
+                {
+                    text: "Go to Cart",
+                    onPress: () => router.push('../cart'),
+                },
+                {text: "Ok"},
+            ]
+        )
+    }
 
     return (
         <View style={styles.card}>
@@ -45,7 +76,11 @@ export default function PetCard({pet}: Props) {
             <Text>Age: {pet.age}</Text>
             <Text>Price: ₹{pet.price}</Text>
 
-            <Button title="Add to Cart" onPress={() => addToCart(pet)} />
+            {/* <Button title="Add to Cart" onPress={() => addToCart(pet)} /> */}
+            <TouchableOpacity style={styles.button} onPress={handleAdd}>
+                <Text style={styles.buttonText}>Add to Cart</Text>
+            </TouchableOpacity>
         </View>
-    );
+    );    
 }
+

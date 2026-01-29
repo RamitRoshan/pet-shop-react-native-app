@@ -1,87 +1,167 @@
-# Welcome to your Expo app:  👋
+# 🐶 Pet Shop Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application built as part of the **Pet Shop - Mobile App**.  
+The app allows users to upload pet details, preview pet images, fetch random pet images, and manage a shopping cart using global state management.
 
-## Get started
+---
 
-1. Install dependencies
+## Platform
 
-   ```bash
-   npm installTake home assignment:
+- React Native (Expo)
+- Android & iOS supported
 
-=> npx create-expo-app@latest ./
+---
 
-packages:
+## Objective
+
+To demonstrate understanding of:
+
+- React Native fundamentals
+- Image handling (camera & gallery)
+- API integration
+- Form validation
+- Global state management using Zustand
+- Clean architecture and reusable components
+
+---
+
+##  Features
+
+### Pet Image Upload
+- Upload image from **gallery or camera**
+- Image preview shown before submission
+
+---
+
+### Pet Details Form
+Form validation implemented using **Zod**.
+
+Fields:
+- Pet Name (Required)
+- Breed (Required)
+- Age (Required)
+- Price (Required)
+
+Validation includes:
+- Required field checks
+- Minimum length validation
+- Numeric validation for age and price
+
+---
+
+### 📤 Submit Pet Details
+- Submit pet data to mock API  
+- Endpoint used:
+   - POST https://reqres.in/api/users
+   - GET https://dog.ceo/api/breeds/image/random
 
 
-- npm i axios
 
-- npm install zustand
+---
 
+## Libraries Used
 
-## ✅ What is StyleSheet in React Native?
-
-ans: StyleSheet is React Native’s built-in way of writing styles, similar to CSS, but not actual CSS.
-
-- “StyleSheet is React Native’s built-in CSS-like styling system, written as JavaScript objects and optimized for native performance.”
-
-
-👉 It comes pre-installed with React Native.
-👉 You don’t install anything extra.
-
-import { StyleSheet } from 'react-native';
-
-
-How its like css:
-
-| CSS (Web)          | StyleSheet (React Native) |
-| ------------------ | ------------------------- |
-| `background-color` | `backgroundColor`         |
-| `font-size`        | `fontSize`                |
-| `margin-top`       | `marginTop`               |
-| `display: flex`    | `flex` (default)          |
+| Library                            | Purpose                                              |
+| ---------------------------------- | ---------------------------------------------------- |
+| **Expo**                           | Rapid React Native development                       |
+| **TypeScript**                     | Type safety                                          |
+| **expo-router**                    | File-based navigation                                |
+| **react-native-safe-area-context** | Keeps UI inside safe screen area (notch, status bar) |
+| **TouchableOpacity**               | Handles press/touch actions with visual feedback     |
+| **expo-image-picker**              | Camera & gallery access                              |
+| **react-hook-form**                | Form state management                                |
+| **zod**                            | Schema-based form validation                         |
+| **@hookform/resolvers**            | Integrates Zod with react-hook-form                  |
+| **axios**                          | API requests                                         |
+| **zustand**                        | Global state management                              |
 
 
+---
 
+ ## ⚙️ Setup Instructions
 
-
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### 1. Clone Repository
 ```bash
-npm run reset-project
+git clone https://github.com/your-username/pet-shop-app.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2.  Install Dependencies
+```
+npm install
+```
 
-## Learn more
+3. Start Application
+```
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Run on Device
+```
+Scan QR using Expo Go
+or
+Run on Android emulator / iOS simulator
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Features implemented:
 
-## Join the community
+- Image upload from gallery with preview
 
-Join our community of developers creating universal apps.
+- Pet details form with Zod validation
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- API integration (POST & GET)
+
+- Random pet image fetching
+
+- Pet listing with card-based UI
+
+- Cart functionality with Zustand global state
+
+- Loading, error, and success handling
+
+- Clean architecture and reusable components
+
+- TypeScript support
+
+**Platform:**
+>React Native (Expo)
+
+
+
+## File Structure:
+```
+pet-shop-app/
+│
+├── app/
+│ ├── index.tsx
+│ ├── add-pet.tsx
+│ ├── pet-list.tsx
+│ ├── cart.tsx
+│ └── _layout.tsx
+│
+├── src/
+│ ├── api/
+│ │ └── petApi.ts
+│ │
+│ ├── components/
+│ │ ├── common/
+│ │ │ └── AppButton.tsx
+│ │ │
+│ │ └── pets/
+│ │ └── PetCard.tsx
+│ │
+│ ├── store/
+│ │ └── cartStore.ts
+│ │
+│ ├── types/
+│ │ └── pet.ts
+│ │
+│ └── utils/
+│ └── imagePicker.ts
+│
+├── assets/
+│
+├── package.json
+├── tsconfig.json
+├── app.json
+└── README.md
+```

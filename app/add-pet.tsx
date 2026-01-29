@@ -1,5 +1,5 @@
-import { Alert, Text, View, TextInput, StyleSheet, Button , Image} from "react-native";
-import { useState } from "react";
+import { Alert, Text, View, TextInput, StyleSheet, Button , Image, ScrollView} from "react-native";
+import { useEffect, useState } from "react";
 import {router} from "expo-router";
 import { useForm } from "react-hook-form";
 import {z} from "zod";
@@ -7,6 +7,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import { submitPet } from "@/api/petApi"; 
 import { pickImage } from "@/utils/imagePicker";
 import { Pet } from "@/types/pet";
+import AppButton from "@/components/common/AppButton";
 
 
 
@@ -26,9 +27,16 @@ export default function AddPetScreen() {
 
 
     // we use useForm hook to manage form state and validation
-    const { register, setValue, handleSubmit, formState:{errors},} = useForm({
+    const { setValue, handleSubmit, formState:{errors},register} = useForm({
         resolver: zodResolver(schema),
     });
+
+    useEffect(() => {
+        register("name");
+        register("breed");
+        register("age");
+        register("price");
+    }, [register]);
 
     // onSubmit event handler for form submission
     const onSubmit = async (data: any) => {
@@ -69,13 +77,22 @@ export default function AddPetScreen() {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView  
+           contentContainerStyle={styles.container}
+           keyboardShouldPersistTaps = "handled"
+        >
             <Text style={styles.title}>Add Pet</Text>
 
-            <Button title="Select Image" onPress={async() => setImage(await pickImage())} />
+            
+             <AppButton
+                title="Select Image"
+                onPress={async()  => setImage(await pickImage())}
+             />
 
                 {/* we use this to conditionally render the image only if it exists */}
-             {image && <Image source={{ uri: image }} style={styles.image} />}
+             {image && (
+                <Image source={{ uri: image }} style={styles.image} />
+            )}
 
 
 
@@ -109,10 +126,11 @@ export default function AddPetScreen() {
                 onChangeText={(text) => setValue("price", text)}
              />
 
+             {/* <AppButton title="Select Image" onPress={async() => setImage(await pickImage())} /> */}
              {/* we use loading state to disable the button and show submitting text while the form is being submitted */}
-             <Button title={loading ? "Submitting..." : "Submit"} onPress={handleSubmit(onSubmit)} />
+             <AppButton title={loading ? "Submitting..." : "Submit"} onPress={handleSubmit(onSubmit)} />
 
-        </View>
+        </ScrollView>
     );
 }
 
