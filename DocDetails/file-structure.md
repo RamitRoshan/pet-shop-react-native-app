@@ -79,3 +79,6 @@ app/(tabs)/index.tsx
 **👉 Put the HOME code here**
 
 >app/index.tsx (HOME / PET LIST)
+
+
+## why we use import { router } from 'expo-router';
