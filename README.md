@@ -25,11 +25,43 @@ To demonstrate understanding of:
 
 ---
 
+##  Assignment Requirements Checklist
+
+| Requirement | Status |
+|------------|--------|
+| Pet image upload from gallery | ✅ Implemented |
+| Camera image upload | ✅ Implemented |
+| Image preview before submit | ✅ Implemented |
+| Pet details form | ✅ Implemented |
+| Form validation (Zod) | ✅ Implemented |
+| Required fields validation | ✅ Implemented |
+| API integration | ✅ Implemented |
+| Random pet image API | ✅ Implemented |
+| Global cart state | ✅ Implemented |
+| Reusable components | ✅ Implemented |
+| TypeScript usage | ✅ Implemented |
+| Clean folder structure | ✅ Implemented |
+
+---
+
 ##  Features
 
 ### Pet Image Upload
 - Upload image from **gallery or camera**
 - Image preview shown before submission
+
+
+---
+
+ 
+
+## Screens Implemented
+
+- Home Screen (Pet listing)
+- Add Pet Screen
+- Image Upload & Preview Screen
+- Cart Screen
+- Pet Details Card View
 
 ---
 
@@ -46,15 +78,6 @@ Validation includes:
 - Required field checks
 - Minimum length validation
 - Numeric validation for age and price
-
----
-
-### 📤 Submit Pet Details
-- Submit pet data to mock API  
-- Endpoint used:
-   - POST https://reqres.in/api/users
-   - GET https://dog.ceo/api/breeds/image/random
-
 
 
 ---
