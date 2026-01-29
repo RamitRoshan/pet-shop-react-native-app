@@ -1,5 +1,5 @@
-import { TouchableOpacity, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { opacity } from "react-native-reanimated/lib/typescript/Colors";
+import { TouchableOpacity, Text, StyleSheet} from "react-native";
+ 
 
 type props = {
     title: string;

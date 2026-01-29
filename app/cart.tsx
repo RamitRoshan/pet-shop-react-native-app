@@ -1,4 +1,4 @@
-import { Text, View, FlatList, Button, StyleSheet } from "react-native";
+import { Text, View, FlatList, StyleSheet } from "react-native";
 import { useCartStore } from "@/store/cartStore";
 import CartItem from "@/components/common/CartItem";
 
