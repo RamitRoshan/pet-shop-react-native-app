@@ -4,6 +4,7 @@ export const pickImage = async () => {
 
     // Ask permission first(Expo does NOT auto-ask permission anymore.
     // You should request permission before opening the gallery.) camera roll permission
+    //wait for the user to select or cancel an image
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     //if permission is not granted, alert the user and return null
@@ -12,6 +13,7 @@ export const pickImage = async () => {
         return null;
     }
 
+    //wait for the user to select or cancel an image
     const result  = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         //In Expo Image Picker, quality controls image compression quality.(0.7 = 70% image quality)

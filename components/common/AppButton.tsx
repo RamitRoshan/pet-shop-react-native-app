@@ -14,6 +14,7 @@ export default function AppButton({ title, onPress, disabled }: props) {
          <TouchableOpacity
             style={[
                styles.button,
+               //opacity controls how transparent something looks
                disabled && { opacity: 0.6 },
             ]}
            onPress={onPress}

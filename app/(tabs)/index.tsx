@@ -56,7 +56,6 @@ export default function HomeScreen() {
       {/* <Button title="Add Pet" onPress={() => router.push("../add-pet")}/>
       <Button title='Go to Cart' onPress={() => router.push('../cart')}/>   */}
 
-       
 
         {/* we are using loading state to show a loading message while the image is being fetched */}
         {/* {loading ? (
